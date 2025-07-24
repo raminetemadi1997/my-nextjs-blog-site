@@ -1,17 +1,18 @@
 import BannerContainer from "@/components/ui/Banner/BannerContainer";
 import Carousel from "@/components/ui/Carousel";
 import HomeContent from "@/components/ui/Home/HomeContent";
+import MobileBannerContainer from "@/components/ui/Mobile/MobileBannerContainer";
+import { responsiveValues } from "@/utils/responsive";
 
-
-const Home = () => {
+const Home = async () => {
+  const isMobile = await responsiveValues();
   return (
     <>
-      <BannerContainer />
+      {isMobile ? <MobileBannerContainer /> : <BannerContainer />}
 
       <Carousel />
 
       <HomeContent />
-    
     </>
   );
 };

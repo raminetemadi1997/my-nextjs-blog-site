@@ -1,12 +1,8 @@
 import Link from "next/link";
 import Container from "../../Container";
 import { Facebook, Twitter, Linkedin, Youtube, Instagram } from "lucide-react";
+import { ISocialItem } from "../Public/Footer";
 
-export interface ISocialItem {
-  id: string;
-  name: string;
-  icon: React.ReactElement;
-}
 
 const socials: ISocialItem[] = [
   {
@@ -36,23 +32,23 @@ const socials: ISocialItem[] = [
   },
 ];
 
-const Footer = () => {
+export default function MobileFooter() {
   return (
     <footer>
       <div className="bg-[#253A57] py-8">
         <Container>
-          <div className="grid grid-cols-4 gap-4">
-            <div className="space-y-8 col-span-2">
+          <div className="grid grid-cols-1 gap-10">
+            <div className="space-y-2 px-4">
               <div className="text-white border-b border-white pb-2 font-bold w-fit">
                 درباره ما
               </div>
-              <div className="text-white leading-10 text-base ">
+              <div className="text-white leading-10 text-sm">
                 بلاگ دی سی ای کالا منبع اخبار تکنولوژی، مقالات راهنمای خرید،
                 بررسی محصول و مقالات تحلیلی در رابطه با سیستم های حفاظتی و
                 نظارتی و کالای برقی ساختمانی می باشد.
               </div>
             </div>
-            <div className="space-y-8 col-start-4">
+            <div className="space-y-2 px-4">
               <div className="text-white border-b border-[#253A57] pb-2 font-bold w-fit">
                 ما را در شبکه های اجتماعی دنبال کنید
               </div>
@@ -77,6 +73,4 @@ const Footer = () => {
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
