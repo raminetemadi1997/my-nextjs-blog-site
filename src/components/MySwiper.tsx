@@ -56,6 +56,15 @@ const MySwiper = ({
           nextEl: `.${nextClass}`,
         }}
         className={className}
+
+        breakpoints={{
+    0: {
+      slidesPerView: 1.5, // برای موبایل
+    },
+    640: {
+      slidesPerView: col, // برای تبلت به بالا یا مقدار اصلی
+    },
+  }}
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="py-1">

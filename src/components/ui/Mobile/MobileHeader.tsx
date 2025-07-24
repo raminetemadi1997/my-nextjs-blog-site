@@ -4,16 +4,18 @@ import Container from "../../Container";
 import Link from "next/link";
 import Menu from "../Menu";
 import Search from "../Search";
-import Navbar from "../Navbar";
 
-const Header = () => {
+export default function MobileHeader() {
   return (
-    <header className="relative z-50">
-      <section className="bg-white shadow pt-2 pb-2">
+    <header className="px-2 relative z-50">
+      <section className="bg-white shadow pt-4 z-10 rounded-b-3xl">
         <Container>
-          <div className="flex items-center justify-start md:gap-4">
+          <div className="flex items-end justify-between">
+            <div>
+              <Menu />
+            </div>
 
-            <Link href={"/"} className="">
+            <Link href={"/"} className="w-auto mx-auto mb-2">
               <Image
                 alt="logo"
                 src="/images/blog_logo.png"
@@ -23,19 +25,12 @@ const Header = () => {
               />
             </Link>
 
-            
-            <div className="flex items-center gap-4 w-1/12">
-              <Menu />
+            <div>
               <Search />
             </div>
-
-            
-            <Navbar className="flex justify-center w-9/12" />
           </div>
         </Container>
       </section>
     </header>
   );
-};
-
-export default Header;
+}

@@ -53,7 +53,7 @@ const data = [
   return (
     <section className="py-8 md:bg-[#e4e4e4]/50">
       <Container>
-        <div className="grid grid-cols-3 auto-rows-[100px] md:gap-4 gap-2">
+        <div className="md:grid grid-cols-3 auto-rows-[100px] md:gap-4 gap-2">
           <Banner
             webpSrc="/images/test_image.webp"
             fallbackSrc="/images/test_image.png"
@@ -65,11 +65,10 @@ const data = [
             href="/"
           />
           {isMobile ? (
-            <div className="col-span-3">
-
+            <div className="col-span-3 row-span-5">
               <MySwiper 
                 col={1}
-                gap={0}
+                gap={5}
                 slides={data}
               />
             </div>

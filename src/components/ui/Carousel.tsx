@@ -108,6 +108,9 @@ const Carousel = () => {
         ss.length > 0&&
       <MySwiper slides={ss} col={5} gap={20} />
       }
+      <div className="text-center border rounded-md px-4 py-2 w-fit mx-auto text-[#7D7D7DCC] border-[#7D7D7DCC] md:hidden block">
+        مشاهده همه عناوین
+      </div>
     </section>
   );
 };

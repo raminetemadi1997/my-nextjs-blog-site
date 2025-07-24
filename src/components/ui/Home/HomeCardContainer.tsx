@@ -5,7 +5,7 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
   return (
      <div className="space-y-4">
       <Title title={title} buttonText={buttonText} href={href} />
-      <div className={`grid grid-cols-3 gap-4`}>
+      <div className={`grid md:grid-cols-3 grid-cols-1 gap-4`}>
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -19,7 +19,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -33,7 +35,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -47,7 +51,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -61,7 +67,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -75,7 +83,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -89,7 +99,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -103,7 +115,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -117,7 +131,9 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
+
         <Card
           webpSrc="/images/test_image.webp"
           fallbackSrc="/images/test_image.png"
@@ -131,6 +147,7 @@ export default function HomeCardContainer({title , buttonText , href } : ITitleP
           author_image_fallbackSrc="/images/test_image.png"
           created_date="1 ساعت پیش"
           author_image_alt="مسلم زمانی ارفعی"
+          mobile_changing={true}
         />
       </div>
       <Title buttonText="مشاهده مقاله های بیشتر" href="/" />

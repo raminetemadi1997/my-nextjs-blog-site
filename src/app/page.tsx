@@ -1,4 +1,6 @@
 import BannerContainer from "@/components/ui/Banner/BannerContainer";
+import Carousel from "@/components/ui/Carousel";
+import HomeContent from "@/components/ui/Home/HomeContent";
 
 
 const Home = () => {
@@ -6,9 +8,9 @@ const Home = () => {
     <>
       <BannerContainer />
 
-      {/* <Carousel /> */}
+      <Carousel />
 
-      {/* <HomeContent /> */}
+      <HomeContent />
     
     </>
   );
