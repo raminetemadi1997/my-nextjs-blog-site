@@ -1,22 +1,10 @@
-
 import Link from "next/link";
 import Picture from "../../Picture";
-import styles from "./Card.module.css";
-import { PictureProps } from "@/types/picture";
 import { Clock4 } from "lucide-react";
+import { ICardProps } from "../Card/Card";
 
 
-export interface ICardProps extends PictureProps {
-  text: string;
-  author_name: string;
-  author_image_webp: string;
-  author_image_fallbackSrc: string;
-  author_image_alt?: string;
-  created_date: string;
-  
-}
-
-const Card = ({
+export default function MobileCard({
   text,
   fallbackSrc,
   alt,
@@ -29,25 +17,21 @@ const Card = ({
   author_image_webp,
   author_image_alt,
   
-}: ICardProps) => {
+}: ICardProps) {
 
-  
-   
-
-   
-
-
-
-
-
-  const createAuthor =
+    const createAuthor =
     author_name || created_date || author_image_fallbackSrc || author_image_webp
       ? true
       : false;
 
+
+
+ 
+
+
   return (
-    <article className={` overflow-hidden ${styles.box} rounded-sm`}>
-      <Link href="/">
+     <article className={` overflow-hidden`}>
+      <Link className='grid grid-cols-3' href="/">
         <Picture
           webpSrc={webpSrc}
           fallbackSrc={fallbackSrc}
@@ -56,7 +40,7 @@ const Card = ({
           width={width}
           imageClassName="object-cover w-full h-full"
         />
-        <div className={`space-y-4 p-4`}>
+        <div className={`space-y-4 col-span-2 p-2 flex flex-col justify-between`}>
           {text && <div className="text-[#6A6F73]">{text}</div>}
 
           {createAuthor && (
@@ -87,7 +71,5 @@ const Card = ({
         </div>
       </Link>
     </article>
-  );
-};
-
-export default Card;
+  )
+}
