@@ -8,7 +8,7 @@ import Navbar from "../Navbar";
 
 const Header = () => {
   return (
-    <header className="md:px-0 px-2">
+    <header className="md:px-0 px-2 relative z-50">
       <section className="bg-white shadow md:pt-2 md:pb-2 pt-4 z-10 md:rounded-b-none rounded-b-3xl">
         <Container>
           <div className="flex md:items-center items-end justify-between md:justify-start md:gap-4">
@@ -33,14 +33,14 @@ const Header = () => {
               <Search />
             </div>
 
-            {/* Navbar فقط در دسکتاپ */}
-            <Navbar className="hidden md:flex justify-center w-9/12" />
-
             {/* منو و سرچ در دسکتاپ (کنار هم) */}
             <div className="hidden md:flex items-center gap-4 w-1/12">
               <Menu />
               <Search />
             </div>
+
+            {/* Navbar فقط در دسکتاپ */}
+            <Navbar className="hidden md:flex justify-center w-9/12" />
           </div>
         </Container>
       </section>
