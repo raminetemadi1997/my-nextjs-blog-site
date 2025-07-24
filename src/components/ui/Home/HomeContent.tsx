@@ -5,11 +5,12 @@ import SidebarItem from "../Sidebar/SidebarItem";
 import Banner from "../Banner/Banner";
 
 import HomeCardContainer from "./HomeCardContainer";
+import { responsiveValues } from "@/utils/responsive";
 
 
 
-export default function HomeContent() {
-
+export default async function HomeContent() {
+  const isMobile = await responsiveValues();
 
   return (
     <section className="md:bg-white bg-[#F2F2F2] md:px-0 px-2">
@@ -18,6 +19,8 @@ export default function HomeContent() {
           <div className={`col-span-3 space-y-8`}>
             <HomeCardContainer title="پست های اخیر"  />
           </div>
+          {
+            !isMobile &&
           <div>
             <Sidebar>
               <SidebarItem title="دسته بندی ها" />
@@ -33,6 +36,7 @@ export default function HomeContent() {
               <SidebarItem title="محبوب ترین مقاله ها" />
             </Sidebar>
           </div>
+          }
         </div>
       </Container>
     </section>
