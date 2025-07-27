@@ -67,7 +67,7 @@ const Footer = () => {
           </div>
         </Container>
       </div>
-      <div className="bg-[#D9D9D9] py-4">
+      <div className="bg-border py-4">
         <Container>
           <div className="text-xs text-center">
             کلیه حقوق این سایت متعلق به مجله خبری دی سی ای کالا می باشد

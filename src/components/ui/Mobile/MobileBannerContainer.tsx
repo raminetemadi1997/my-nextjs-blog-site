@@ -2,7 +2,12 @@ import Container from "@/components/Container";
 import Banner from "../Banner/Banner";
 import MySwiper from "@/components/MySwiper";
 
+
 export default function MobileBannerContainer() {
+
+  
+
+
   const data = [
     <Banner
       key="1"
@@ -45,6 +50,7 @@ export default function MobileBannerContainer() {
             imageClassName="object-cover w-full h-full"
             href="/"
           />
+          
           <div className="col-span-3 row-span-5">
             <MySwiper col={1} gap={5} slides={data} />
           </div>

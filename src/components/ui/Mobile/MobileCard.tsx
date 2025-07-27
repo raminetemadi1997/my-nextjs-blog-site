@@ -25,13 +25,9 @@ export default function MobileCard({
       : false;
 
 
-
- 
-
-
   return (
-     <article className={` overflow-hidden`}>
-      <Link className='grid grid-cols-3' href="/">
+     <article className={`overflow-hidden border-b pb-4 border-border last:border-b-0 last:pb-0`}>
+      <Link className='grid grid-cols-3 gap-2' href="/">
         <Picture
           webpSrc={webpSrc}
           fallbackSrc={fallbackSrc}
@@ -40,8 +36,8 @@ export default function MobileCard({
           width={width}
           imageClassName="object-cover w-full h-full"
         />
-        <div className={`space-y-4 col-span-2 p-2 flex flex-col justify-between`}>
-          {text && <div className="text-[#6A6F73]">{text}</div>}
+        <div className={`space-y-4 col-span-2 flex flex-col justify-between`}>
+          {text && <div className="text-[#6A6F73] text-xs">{text}</div>}
 
           {createAuthor && (
             <div className="grid grid-cols-4 place-items-center">

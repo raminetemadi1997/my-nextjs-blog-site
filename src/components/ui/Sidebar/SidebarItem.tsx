@@ -39,7 +39,7 @@ const SidebarItem = ({ buttonText, title, href }: ISidebarItemProps) => {
             <Link
               href={href}
               title={name}
-              className="block mx-4 text-[#253A57B2] py-2 group-last:border-b-0 border-b border-[#d9d9d9]/80"
+              className="block mx-4 text-[#253A57B2] py-2 group-last:border-b-0 border-b border-border/80"
             >
              
                 {name}
