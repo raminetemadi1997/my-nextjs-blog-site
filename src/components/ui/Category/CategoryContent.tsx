@@ -5,6 +5,7 @@ import Sidebar from "../Sidebar";
 import SidebarItem from "../Sidebar/SidebarItem";
 import Banner from "../Banner/Banner";
 import { responsiveValues } from "@/utils/responsive";
+import Title from "../Title";
 
 export default async function CategoryContent() {
   const isMobile = await responsiveValues();
@@ -12,8 +13,13 @@ export default async function CategoryContent() {
     <section>
       <Container>
         <div className={`md:grid grid-cols-4 gap-8`}>
-          <div className={`md:col-span-3 col-span-4 space-y-8`}>
+          <div className={`md:col-span-3 col-span-4 md:space-y-8 space-y-4`}>
+            {
+              isMobile ?
+              <Title title="دوربین مدار بسته" />
+              :
             <CategoryTitle title="دوربین مدار بسته" />
+            }
             <CategoryCardContainer />
           </div>
           {

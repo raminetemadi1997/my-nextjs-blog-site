@@ -35,7 +35,7 @@ const Title = ({ title, buttonText, href }: ITitleProps) => {
               </div>
             )}
             <div
-              className={`md:flex flex-1 hidden border-t border-gray-200 ${marginData}`}
+              className={`flex flex-1 border-t border-gray-200 ${marginData}`}
             ></div>
           </div>
           {href && (
