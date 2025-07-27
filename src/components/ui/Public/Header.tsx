@@ -1,8 +1,6 @@
-"use client";
 import Image from "next/image";
 import Container from "../../Container";
 import Link from "next/link";
-import Menu from "../Menu";
 import Search from "../Search";
 import Navbar from "../Navbar";
 
@@ -24,8 +22,7 @@ const Header = () => {
             </Link>
 
             
-            <div className="flex items-center gap-4 w-1/12">
-              <Menu />
+            <div className="flex items-center w-1/12 justify-center">
               <Search />
             </div>
 

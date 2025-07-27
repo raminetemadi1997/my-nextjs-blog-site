@@ -33,7 +33,7 @@ export default async function CategoryCardContainer() {
         </div>
       </div>
 
-      <div className={`grid md:grid-cols-3 grid-cols-1 gap-4`}>
+      <div className={`grid md:grid-cols-3 grid-cols-1 gap-2`}>
         {cardData.map((card, index) =>
           isMobile ? (
             <MobileCard key={index} {...card} />

@@ -27,7 +27,7 @@ export default async function HomeCardContainer({
   return (
     <div className="space-y-4 md:pb-0 pb-4">
       <Title title={title} buttonText={buttonText} href={href} />
-      <div className={`grid md:grid-cols-3 grid-cols-1 gap-4`}>
+      <div className={`grid md:grid-cols-3 grid-cols-1 gap-2`}>
         {cardData.map((card, index) =>
           isMobile ? (
             <MobileCard key={index} {...card} />
