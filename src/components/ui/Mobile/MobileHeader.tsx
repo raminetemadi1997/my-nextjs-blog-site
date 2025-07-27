@@ -12,7 +12,7 @@ export default function MobileHeader() {
         <Container>
           <div className="flex items-end justify-between">
             <div>
-              <Menu />
+              <Menu responsive="mobile" />
             </div>
 
             <Link href={"/"} className="w-auto mx-auto mb-2">

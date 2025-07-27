@@ -2,9 +2,11 @@ import Container from "@/components/Container";
 import React from "react";
 import Banner from "../Banner/Banner";
 
+
 export default function CategoryBannerContainer() {
+  
   return (
-    <section className="py-8 bg-[#e4e4e4]/50">
+    <section className="py-8 md:bg-[#e4e4e4]/50">
       <Container>
         <Banner
           webpSrc="/images/test_image.webp"
@@ -12,7 +14,7 @@ export default function CategoryBannerContainer() {
           alt="بنر"
           height={1024}
           width={1024}
-          imageClassName="object-cover h-[550px] rounded-xl"
+          imageClassName="object-cover h-[550px] md:rounded-xl"
           href="/"
         />
       </Container>

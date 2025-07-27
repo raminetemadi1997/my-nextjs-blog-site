@@ -34,13 +34,19 @@ export default function MobileCard({
           alt={alt}
           height={height}
           width={width}
-          imageClassName="object-cover w-full h-full"
+          imageClassName="object-cover w-full h-full rounded-md"
         />
         <div className={`space-y-4 col-span-2 flex flex-col justify-between`}>
           {text && <div className="text-[#6A6F73] text-xs">{text}</div>}
 
           {createAuthor && (
-            <div className="grid grid-cols-4 place-items-center">
+            <div className="grid grid-cols-4">
+              {created_date && (
+                <div className="flex items-center gap-1 col-span-2">
+                  <Clock4 color="#a1a2a7" size={12} />
+                  <div className="md:text-sm text-xs text-[#A1A2A7]">{created_date}</div>
+                </div>
+              )}
               <div className="flex items-center gap-1 col-span-2">
                 <div>
                   {author_image_webp && author_image_fallbackSrc && (
@@ -56,12 +62,7 @@ export default function MobileCard({
                 </div>
                 <div className="md:text-sm text-xs text-[#A1A2A7]">{author_name}</div>
               </div>
-              {created_date && (
-                <div className="flex items-center gap-1 col-span-2">
-                  <Clock4 color="#a1a2a7" size={12} />
-                  <div className="md:text-sm text-xs text-[#A1A2A7]">{created_date}</div>
-                </div>
-              )}
+              
             </div>
           )}
         </div>
