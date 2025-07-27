@@ -27,7 +27,7 @@ export default async function CategoryCardContainer() {
     <div className="md:bg-white bg-[#F2F2F2] md:p-0 p-2">
       <div className="flex items-center justify-between mb-4">
         <Sort />
-        <div className="flex items-center gap-1.5 md:text-sm text-xs text-gray-700 dark:text-gray-200">
+        <div className="flex items-center gap-1.5 md:text-sm text-xs text-gray-700">
           <span className="font-bold">144</span>
           <span>مطلب موجود است.</span>
         </div>
