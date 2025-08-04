@@ -5,8 +5,15 @@ import MobileBannerContainer from "@/components/ui/Mobile/MobileBannerContainer"
 import MobileCarousel from "@/components/ui/Mobile/MobileCarousel";
 import { responsiveValues } from "@/utils/responsive";
 
+
+
+
+
 const Home = async () => {
   const isMobile = await responsiveValues();
+
+
+
   return (
     <>
       {isMobile ? (
