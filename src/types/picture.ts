@@ -7,3 +7,18 @@ export interface PictureProps {
   sizes?: string;
   imageClassName?: string;
 }
+
+export interface IPictureProps {
+  indexArray: IImageVariants;
+  indexWeb: IImageVariants;
+  alt?:string,
+  width:number,
+  height:number,
+  imageClassName?: string
+}
+
+interface IImageVariants {
+  original:string,
+  double_ratio:string,
+  triple_ratio:string
+}

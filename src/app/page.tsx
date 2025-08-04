@@ -16,7 +16,7 @@ const Home = async () => {
 
   return (
     <>
-      {isMobile ? (
+      {/* {isMobile ? (
         <>
           <MobileBannerContainer />
           <MobileCarousel />
@@ -29,7 +29,7 @@ const Home = async () => {
         </>
       )}
 
-      <HomeContent />
+      <HomeContent /> */}
     </>
   );
 };

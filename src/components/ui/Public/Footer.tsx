@@ -1,45 +1,42 @@
 import Link from "next/link";
 import Container from "../../Container";
-import { Facebook, Twitter, Linkedin, Youtube, Instagram } from "lucide-react";
+import { IPictureProps } from "@/types/picture";
+import Picture from "@/components/Picture";
 
-export interface ISocialItem {
-  id: string;
-  name: string;
-  icon: React.ReactElement;
+interface IFooterPorps {
+  footerColor?: string | null;
+  footer: IFooterData;
+  social?: ISocialData;
 }
 
-const socials: ISocialItem[] = [
-  {
-    id: "1",
-    name: "facebook",
-    icon: <Facebook color="#ffffff" />,
-  },
-  {
-    id: "2",
-    name: "twitter",
-    icon: <Twitter color="#ffffff" />,
-  },
-  {
-    id: "3",
-    name: "Linkedin",
-    icon: <Linkedin color="#ffffff" />,
-  },
-  {
-    id: "4",
-    name: "Youtube",
-    icon: <Youtube color="#ffffff" />,
-  },
-  {
-    id: "5",
-    name: "Instagram",
-    icon: <Instagram color="#ffffff" />,
-  },
-];
+interface IFooterData {
+  copyRight: string | null;
+  aboutUs: string | null;
+  aboutUsMobile: string | null;
+}
 
-const Footer = () => {
+interface ISocialData {
+  status: boolean;
+  message: string;
+  data: ISocialItems[];
+}
+
+interface ISocialItems {
+  id: number;
+  title: string;
+  image: IPictureProps;
+  imageAlt: string;
+  link: string;
+  extra: unknown;
+}
+
+const Footer = ({ footer, footerColor, social }: IFooterPorps) => {
   return (
     <footer>
-      <div className="bg-[#253A57] py-8">
+      <div
+        className={`py-8`}
+        style={{ backgroundColor: footerColor || "#000" }}
+      >
         <Container>
           <div className="grid grid-cols-4 gap-4">
             <div className="space-y-8 col-span-2">
@@ -47,31 +44,38 @@ const Footer = () => {
                 درباره ما
               </div>
               <div className="text-white leading-10 text-base ">
-                بلاگ دی سی ای کالا منبع اخبار تکنولوژی، مقالات راهنمای خرید،
-                بررسی محصول و مقالات تحلیلی در رابطه با سیستم های حفاظتی و
-                نظارتی و کالای برقی ساختمانی می باشد.
+                {footer.aboutUs || `بلاگ دی سی ای کالا`}
               </div>
             </div>
-            <div className="space-y-8 col-start-4">
-              <div className="text-white border-b border-[#253A57] pb-2 font-bold w-fit">
-                ما را در شبکه های اجتماعی دنبال کنید
+            {social?.status && (
+              <div className="space-y-8 col-start-4">
+                <div className={`text-white border-b pb-2 font-bold w-fit`}>
+                  ما را در شبکه های اجتماعی دنبال کنید
+                </div>
+                <div className="text-white flex items-center gap-4">
+                  {social.data.map(
+                    ({ link, title, id, image, imageAlt }: ISocialItems) => (
+                      <Link href={link} title={title} key={id}>
+                        <Picture
+                          indexWeb={image.indexWeb}
+                          indexArray={image.indexArray}
+                          alt={imageAlt}
+                          width={24}
+                          height={24}
+                        />
+                      </Link>
+                    )
+                  )}
+                </div>
               </div>
-              <div className="text-white flex items-center gap-4">
-                {socials.map(({ icon, id, name }: ISocialItem) => (
-                  <Link href={"/"} title={name} key={id}>
-                    {icon}
-                  </Link>
-                ))}
-              </div>
-            </div>
+            )}
           </div>
         </Container>
       </div>
       <div className="bg-border py-4">
         <Container>
           <div className="text-xs text-center">
-            کلیه حقوق این سایت متعلق به مجله خبری دی سی ای کالا می باشد
-            Dcakala.com/Articles - Copyright © 2020-2017 | DcakalaArticles
+            {footer.copyRight || `Copyright ©`}
           </div>
         </Container>
       </div>

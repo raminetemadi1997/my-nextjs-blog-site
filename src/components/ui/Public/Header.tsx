@@ -1,33 +1,53 @@
-import Image from "next/image";
 import Container from "../../Container";
 import Link from "next/link";
 import Search from "../Search";
 import Navbar from "../Navbar";
+import { IPictureProps } from "@/types/picture";
+import Picture from "@/components/Picture";
 
-const Header = () => {
+interface IHeaderProps {
+  menus: IMenuData;
+  logo: IPictureProps;
+  logoAlt: string;
+}
+
+export interface IMenuData {
+  status?: boolean;
+  message?: string;
+  className?: string;
+  data: IDataItem[];
+}
+
+export interface IDataItem {
+  id: number;
+  name: string;
+  slug: string;
+  extra?: unknown;
+}
+
+const Header = ({ menus, logo, logoAlt }: IHeaderProps) => {
   return (
     <header className="relative z-50">
       <section className="bg-white shadow pt-2 pb-2">
         <Container>
           <div className="flex items-center justify-start md:gap-4">
-
             <Link href={"/"} className="">
-              <Image
-                alt="logo"
-                src="/images/blog_logo.png"
+              <Picture
+                indexWeb={logo.indexWeb}
+                indexArray={logo.indexArray}
+                alt={logoAlt}
+                height={72}
                 width={130}
-                height={70}
-                priority={true}
               />
             </Link>
 
-            
             <div className="flex items-center w-1/12 justify-center">
               <Search />
             </div>
 
-            
-            <Navbar className="flex justify-center w-9/12" />
+            {menus.status && (
+              <Navbar {...menus} className="flex justify-start w-9/12" />
+            )}
           </div>
         </Container>
       </section>

@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Footer from "@/components/ui/Public/Footer";
-import { responsiveValues } from "@/utils/responsive";
-import MobileFooter from "@/components/ui/Mobile/MobileFooter";
+
 
 export const metadata: Metadata = {
    title: {
@@ -15,16 +13,12 @@ export const metadata: Metadata = {
 export default async function RootLayout({children}: Readonly<{
   children: React.ReactNode;
 }>) {
-  const isMobile = await responsiveValues()
+  
   
   return (
     <html lang="fa" dir="rtl">
       <body>
         {children}
-        {
-          isMobile ? <MobileFooter /> : <Footer />
-        }
-        
       </body>
     </html>
   );
