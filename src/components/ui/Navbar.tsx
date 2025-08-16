@@ -3,7 +3,6 @@ import Link from "next/link";
 import { IDataItem, IMenuData } from "./Public/Header";
 
 const Navbar = ({data ,className}: IMenuData) => {
-    console.log(data);
     
     return (
         <nav className={className}>

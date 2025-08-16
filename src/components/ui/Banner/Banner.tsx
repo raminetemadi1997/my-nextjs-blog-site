@@ -1,10 +1,10 @@
 "use client";
-import { PictureProps } from "@/types/picture";
+import { IPictureProps } from "@/types/picture";
 import Picture from "../../Picture";
 import Link from "next/link";
 import styles from "./Banner.module.css";
 
-interface IBannerProps extends PictureProps {
+interface IBannerProps extends IPictureProps {
   text?: string;
   className?: string;
   href?: string;
@@ -14,9 +14,8 @@ const Banner = ({
   height,
   width,
   alt,
-  fallbackSrc,
-  webpSrc,
-  sizes,
+  indexArray,
+  indexWeb,
   className,
   text,
   imageClassName,
@@ -27,12 +26,11 @@ const Banner = ({
   const content = (
     <>
       <Picture
-        alt={alt}
-        fallbackSrc={fallbackSrc}
-        webpSrc={webpSrc}
-        height={height}
+        indexWeb={indexWeb}
+        indexArray={indexArray}
         width={width}
-        sizes={sizes}
+        height={height}
+        alt={alt}
         imageClassName={imageClassName}
       />
       {text && <div className={styles.title_style}>{text}</div>}

@@ -1,28 +1,25 @@
 import { responsiveValues } from "@/utils/responsive";
 import Title from "../Title";
 import PostCard from "../Card/PostCard";
-import { IRPData } from "@/types/HomeContent/RecentlyPosts";
+import { ISCItems } from "@/types/HomeContent/SelectedCategories";
 
 
 
-export default async function HomeCardContainer({
+export default async function SelectedCategories({
  data,
- title,
- slug,
- buttonText
-}: IRPData) {
+}: ISCItems) {
   const isMobile = await responsiveValues();
 
   return (
-    <div className="space-y-4 md:pb-0 pb-4">
+    <div id={`selected_category_${data.id}`} className="space-y-4 md:pb-0 pb-4">
       <Title 
-        title={title}
-        href={slug}
-        buttonText={buttonText}
+        title={data.name}
+        href={data.slug}
+        buttonText={data.name}
       />
       <div className={`grid md:grid-cols-3 grid-cols-1 gap-2`}>
 
-        {data && data.map((item , i)=>(
+        {data.extra.posts.map((item , i)=>(
             <div key={item.data.content.id || i}>
                   <PostCard {...item.data.content} user={item.data.extra.user} />
             </div>

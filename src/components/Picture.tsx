@@ -1,4 +1,4 @@
-import { IPictureProps } from "@/types/picture";
+import { IImageVariants, IPictureProps } from "@/types/picture";
 const imageBackend = process.env.NEXT_PUBLIC_BACKEND_IMAGE_URL;
 
 const Picture = ({
@@ -7,6 +7,8 @@ const Picture = ({
   alt,
   height,
   width,
+  imageClassName,
+  currentImage
 }: IPictureProps) => {
   const buildSrcSet = (paths: {
     original: string;
@@ -19,6 +21,10 @@ const Picture = ({
 
   const imageFormatPNG = indexArray.original.endsWith(".png");
 
+
+  
+    const currentSrc = indexArray[currentImage as keyof IImageVariants];
+
   return (
     <picture className="block">
       <source srcSet={buildSrcSet(indexWeb)} type="image/webp" />
@@ -29,12 +35,13 @@ const Picture = ({
       />
 
       <img
-        src={`${imageBackend}/${indexArray.original}`}
+        src={`${imageBackend}/${currentSrc}`}
         alt={alt}
         title={alt}
         width={width}
         height={height}
         loading="lazy"
+        className={imageClassName}
       />
     </picture>
   );

@@ -14,10 +14,11 @@ export interface IPictureProps {
   alt?:string,
   width:number,
   height:number,
-  imageClassName?: string
+  imageClassName?: string,
+  currentImage?:string
 }
 
-interface IImageVariants {
+export interface IImageVariants {
   original:string,
   double_ratio:string,
   triple_ratio:string
