@@ -1,31 +1,22 @@
 import { responsiveValues } from "@/utils/responsive";
 import Title from "../Title";
-import PostCard from "../Card/PostCard";
 import { ISCItems } from "@/types/HomeContent/SelectedCategories";
+import CoverPost from "../Public/CoverPost";
 
-
-
-export default async function SelectedCategories({
- data,
-}: ISCItems) {
+export default async function SelectedCategories({ data }: ISCItems) {
   const isMobile = await responsiveValues();
 
   return (
     <div id={`selected_category_${data.id}`} className="space-y-4 md:pb-0 pb-4">
-      <Title 
-        title={data.name}
-        href={data.slug}
-        buttonText={data.name}
-      />
+      <Title title={data.name} href={data.slug} buttonText={data.name} />
       <div className={`grid md:grid-cols-3 grid-cols-1 gap-2`}>
-
-        {data.extra.posts.map((item , i)=>(
-            <div key={item.data.content.id || i}>
-                  <PostCard {...item.data.content} user={item.data.extra.user} />
-            </div>
-          ))
-        }
-
+        {data.extra.posts.map((item) => (
+          <CoverPost
+            key={item.data.content.id}
+            content={item.data.content}
+            user={item.data.extra.user}
+          />
+        ))}
 
         {/* {cardData.map((card, index) =>
           isMobile ? (

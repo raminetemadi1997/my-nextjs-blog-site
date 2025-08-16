@@ -1,10 +1,10 @@
 export interface IPostPictureProps {
-  indexArray: IPostPictureVariants;
-  indexWeb: IPostPictureVariants;
+  indexArray?: IPostPictureVariants;
+  indexWeb?: IPostPictureVariants;
   directory?: string;
-  currentImage: string;
-  width: number;
-  height: number;
+  currentImage?: string;
+  width?: number;
+  height?: number;
   alt:string
 }
 

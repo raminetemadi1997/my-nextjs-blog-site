@@ -1,34 +1,29 @@
 import { responsiveValues } from "@/utils/responsive";
 import Title from "../Title";
-import PostCard from "../Card/PostCard";
 import { IRPData } from "@/types/HomeContent/RecentlyPosts";
-
-
+import CoverPost from "../Public/CoverPost";
 
 export default async function HomeCardContainer({
- data,
- title,
- slug,
- buttonText
+  data,
+  title,
+  slug,
+  buttonText,
 }: IRPData) {
   const isMobile = await responsiveValues();
+  console.log(data);
 
   return (
     <div className="space-y-4 md:pb-0 pb-4">
-      <Title 
-        title={title}
-        href={slug}
-        buttonText={buttonText}
-      />
+      <Title title={title} href={slug} buttonText={buttonText} />
       <div className={`grid md:grid-cols-3 grid-cols-1 gap-2`}>
-
-        {data && data.map((item , i)=>(
-            <div key={item.data.content.id || i}>
-                  <PostCard {...item.data.content} user={item.data.extra.user} />
-            </div>
-          ))
-        }
-
+        {data &&
+          data.map((item) => (
+            <CoverPost
+              key={item.data.content.id}
+              content={item.data.content}
+              user={item.data.extra.user}
+            />
+          ))}
 
         {/* {cardData.map((card, index) =>
           isMobile ? (

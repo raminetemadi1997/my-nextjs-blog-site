@@ -5,7 +5,7 @@ import { ChevronRight , ChevronLeft } from "lucide-react";
 interface IPaginationProps {
   currentPage: number;
   totalPages: number;
-  //   onPageChange: (page: number) => void;
+  
 }
 
 export default function Pagination({

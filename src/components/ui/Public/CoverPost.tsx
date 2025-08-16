@@ -1,52 +1,49 @@
 "use client";
-
 import Link from "next/link";
 import React from "react";
-import styles from "./Card.module.css";
+import styles from "../Card/Card.module.css";
 import PostPicture from "@/components/PostPicture";
 import User from "../Public/User";
 import Published from "../Public/Published";
 import parse from "html-react-parser";
 import { motion } from "framer-motion";
-import { ICPost } from "@/types/Category/Category";
+import { IUserProps } from "@/types/User";
+import { ICP } from "@/types/Image/CoverPost";
+
+type TCombinedTypes = {
+    user:IUserProps,
+    content:ICP
+};
+
+export default function CoverPost(props: TCombinedTypes) {
+  const {
+    user,
+    content
+  } = props;
 
 
-
-
-
-
-
-
-const PostCard = ({
-data,
-
-}: ICPost) => {
-
-  
-  
-  
-
+  const userCondition = user.image || user.slug || user.fullName;
 
   return (
     <article
-      id={`article_${data.content.id}`}
+      id={`article_${content.id}`}
       className={`overflow-hidden ${styles.box} rounded-sm group`}
     >
-      <Link href={data.content.slug}>
+      <Link href={content.slug ?? "#"}>
         <div className="relative overflow-hidden">
-          
-          {(data.content.cover || data.content.image) && (
+          {content.cover && (
             <PostPicture
-              indexWeb={data.content.cover?.indexWeb ?? data.content.image?.indexWeb}
-              indexArray={data.content.cover?.indexArray ?? data.content.image?.indexArray}
+              indexWeb={content.cover?.indexWeb}
+              indexArray={content.cover?.indexArray}
               height={308}
               width={308}
-              alt={data.content.coverAlt || ""}
-              currentImage={data.content.cover?.currentImage ?? data.content.image?.currentImage }
+              alt={content.coverAlt || "تصویر"}
+              currentImage={content.cover?.currentImage}
+              directory={content.cover.directory}
             />
           )}
 
-          {data.content.summary && (
+          {content.summary && (
             <motion.div
               initial={{ bottom: "-90%" }}
               whileHover={{ bottom: "0%" }}
@@ -63,25 +60,30 @@ data,
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="text-sm text-white leading-relaxed line-clamp-6 text-justify origin-top"
               >
-                {parse(data.content.summary )}
+                {parse(content.summary)}
               </motion.div>
             </motion.div>
           )}
         </div>
 
         <div className="space-y-4 p-4 bg-white">
-          {(data.content.name || data.content.altName) && (
-            <div className="text-[#6A6F73]">{data.content.altName || data.content.name}</div>
+          {(content.name || content.altName) && (
+            <div className="text-[#6A6F73]">{content.altName || content.name}</div>
           )}
 
           <div className="grid grid-cols-4 place-items-center">
-            <User {...data.extra.user} className="col-span-2" />
-            {data.content.persianDate && <Published persianDate={data.content.persianDate} />}
+            {userCondition && (
+              <User
+                className="col-span-2"
+                fullName={user.fullName}
+                id={user.id}
+                image={user.image}
+              />
+            )}
+            {content.persianDate && <Published persianDate={content.persianDate} />}
           </div>
         </div>
       </Link>
     </article>
   );
-};
-
-export default PostCard;
+}

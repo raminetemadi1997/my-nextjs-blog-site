@@ -23,6 +23,8 @@ const Banner = ({
 }: IBannerProps) => {
   const wrapperClass = `${className || "banner block"} overflow-hidden relative`;
 
+
+
   const content = (
     <>
       <Picture

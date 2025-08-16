@@ -1,12 +1,8 @@
-import Layout from "@/components/Layout";
+
 import React from "react";
 
-interface IBlogTemplateProps {
-  children: React.ReactNode;
-}
-
-const BlogTemplate = async ({ children }: IBlogTemplateProps) => {
-  return <Layout>{children}</Layout>;
+const BlogTemplate = ({ children }: {children: React.ReactNode}) => {
+  return <>{children}</>;
 };
 
 export default BlogTemplate;

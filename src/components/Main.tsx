@@ -1,6 +1,6 @@
 
 interface IMain {
-    children:React.ReactNode
+    children : React.ReactNode
 }
 
 const Main = ({children} : IMain) => {

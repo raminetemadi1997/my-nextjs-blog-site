@@ -51,7 +51,7 @@ const MySwiper = ({
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={gap}
         slidesPerView={col}
-        loop
+        loop={slides.length > col}
         autoplay={autoplay ? { delay: 2500 } : false}
         pagination={pagination ? { clickable: true } : false}
         navigation={{

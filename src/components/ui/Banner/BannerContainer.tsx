@@ -2,7 +2,7 @@ import Container from "@/components/Container";
 import Banner from "./Banner";
 import { IPictureProps } from "@/types/picture";
 
-interface IBannerProps {
+export interface IBannerProps {
   topBanner: IBannerData;
   middleBanner: IBannerData;
   sideBanners: IBannerData[];

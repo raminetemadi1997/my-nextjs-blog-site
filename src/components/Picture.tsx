@@ -1,4 +1,5 @@
-import { IImageVariants, IPictureProps } from "@/types/picture";
+import { IImageIndexRatio } from "@/types/Category/Category";
+import { IPictureProps } from "@/types/picture";
 const imageBackend = process.env.NEXT_PUBLIC_BACKEND_IMAGE_URL;
 
 const Picture = ({
@@ -21,9 +22,9 @@ const Picture = ({
 
   const imageFormatPNG = indexArray.original.endsWith(".png");
 
-
-  
-    const currentSrc = indexArray[currentImage as keyof IImageVariants];
+    const currentSrc = indexArray[currentImage as keyof IImageIndexRatio];
+    
+    
 
   return (
     <picture className="block">
