@@ -20,9 +20,9 @@ const Picture = ({
     `${imageBackend}/${paths.double_ratio} 2x, ` +
     `${imageBackend}/${paths.triple_ratio} 3x`;
 
-  const imageFormatPNG = indexArray.original.endsWith(".png");
+  const imageFormatPNG = indexArray?.original.endsWith(".png");
 
-    const currentSrc = indexArray[currentImage as keyof IImageIndexRatio];
+    const currentSrc =indexArray && indexArray[currentImage as keyof IImageIndexRatio];
     
     
 

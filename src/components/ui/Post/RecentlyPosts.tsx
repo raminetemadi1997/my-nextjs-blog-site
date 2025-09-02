@@ -16,7 +16,7 @@ export default function RecentlyPosts({
   className,
 }: IRecentlyPostsProps) {
 
-  console.log(data);
+  
   
   
   

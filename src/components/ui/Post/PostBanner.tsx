@@ -1,16 +1,23 @@
-import Link from 'next/link';
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 import styles from "../Banner/Banner.module.css";
-import { PostContentFull } from '@/types/Post/Post';
-import PostImage from './PostImage';
+import { IPostContent } from "@/types/Post/Post";
+import PostImage from "./PostImage";
 
-
-type CombinedBanner = PostContentFull & {
+type CombinedBanner = IPostContent & {
   className?: string;
 };
 
-export default function PostBanner({name , slug , className , image , imageAlt} : CombinedBanner) {
-  const wrapperClass = `${className || "banner"} overflow-hidden relative block`;
+export default function PostBanner({
+  image,
+  imageAlt,
+  slug,
+  name,
+  className,
+}: Pick<CombinedBanner, "image" | "imageAlt" | "slug" | "name" | "className">) {
+  const wrapperClass = `${
+    className || "banner"
+  } overflow-hidden relative block`;
 
   const content = (
     <>

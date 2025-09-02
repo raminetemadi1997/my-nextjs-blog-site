@@ -3,21 +3,19 @@ import MobileLayout from "@/components/responsive/MobileLayout";
 import BannerContainer from "@/components/ui/Banner/BannerContainer";
 import Carousel from "@/components/ui/Carousel";
 import HomeContent from "@/components/ui/Home/HomeContent";
-import MobileBannerContainer from "@/components/ui/Mobile/MobileBannerContainer";
-import MobileCarousel from "@/components/ui/Mobile/MobileCarousel";
 import { handlerApi } from "@/services/handlerApi";
+import { IHomeResponseApi } from "@/types/Home/Home";
 import { responsiveValues } from "@/utils/responsive";
 
 const Home = async () => {
   const isMobile = await responsiveValues();
-  const data = await handlerApi("home");
+  const data = (await handlerApi("home")) as IHomeResponseApi;
 
-  const bannerVisible = !!(
-    data.data.content.banners.status &&
-    (data.data.content.banners.data.topBanner ||
-      data.data.content.banners.data.middleBanner ||
-      data.data.content.banners.data.sideBanners.length > 0)
-  );
+  const bannerVisible =
+    data.data.content.banners && data.data.content.banners.status;
+
+  const selectedPostsVisible =
+    data.data.content.selectedPosts && data.data.content.selectedPosts.status;
 
   if (isMobile) {
     return (
@@ -29,24 +27,10 @@ const Home = async () => {
 
   return (
     <Layout>
-      {isMobile ? (
-        <>
-          <MobileBannerContainer />
-          <MobileCarousel />
-        </>
-      ) : (
-        <>
-          {bannerVisible && (
-            <BannerContainer
-              topBanner={data.data.content.banners.data.topBanner}
-              middleBanner={data.data.content.banners.data.middleBanner}
-              sideBanners={data.data.content.banners.data.sideBanners}
-            />
-          )}
-          {data.data.content.selectedPosts.status && (
-            <Carousel {...data.data.content.selectedPosts} />
-          )}
-        </>
+      {bannerVisible && <BannerContainer {...data.data.content.banners.data} />}
+
+      {selectedPostsVisible && (
+        <Carousel {...data.data.content.selectedPosts} />
       )}
 
       <HomeContent

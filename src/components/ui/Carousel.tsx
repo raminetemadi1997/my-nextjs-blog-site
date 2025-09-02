@@ -6,28 +6,11 @@ import "react-loading-skeleton/dist/skeleton.css";
 import MySwiper from "@/components/MySwiper";
 import Title from "./Title";
 import Container from "../Container";
-import { IUserProps } from "@/types/User";
 import CoverPost from "./Public/CoverPost";
-import { ICP } from "@/types/Image/CoverPost";
+import { SelectedPosts } from "@/types/Home/Home";
 
-export interface ICarouselProps {
-  status: boolean;
-  message: string;
-  data: ICarouselItem[];
-}
 
-interface ICarouselItem {
-  status: boolean;
-  message: string;
-  data: {
-    content: ICP;
-    extra: {
-      user: IUserProps;
-    };
-  };
-}
-
-const Carousel = ({ data }: ICarouselProps) => {
+const Carousel = ({ data }: Pick<SelectedPosts , 'data'>) => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {

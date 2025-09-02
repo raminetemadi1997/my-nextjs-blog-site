@@ -1,14 +1,17 @@
 import React from "react";
-import { PostData } from "@/types/Post/Post";
+import { IPostContent } from "@/types/Post/Post";
 import PostBanner from "./PostBanner";
 
 export default function PostBannerContainer({
-content
-}: PostData) {
+image,
+imageAlt,
+slug,
+name
+}: Pick<IPostContent , 'image' | 'imageAlt' | 'slug' | 'name'>) {
   return (
     <section className="py-8 md:bg-[#e4e4e4]/50">
       <PostBanner
-        {...content}
+        {...{image , imageAlt , slug , name}}
         className='w-fit mx-auto'
       />
     </section>

@@ -10,7 +10,7 @@ export default async function HomeCardContainer({
   buttonText,
 }: IRPData) {
   const isMobile = await responsiveValues();
-  console.log(data);
+  
 
   return (
     <div className="space-y-4 md:pb-0 pb-4">

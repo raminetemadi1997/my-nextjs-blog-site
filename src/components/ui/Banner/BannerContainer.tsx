@@ -1,26 +1,14 @@
 import Container from "@/components/Container";
 import Banner from "./Banner";
-import { IPictureProps } from "@/types/picture";
+import { IBannerData } from "@/types/Home/Home";
 
-export interface IBannerProps {
-  topBanner: IBannerData;
-  middleBanner: IBannerData;
-  sideBanners: IBannerData[];
-}
 
-interface IBannerData {
-  id: number;
-  title: string;
-  image: IPictureProps;
-  imageAlt: string;
-  link: string;
-}
 
 const BannerContainer = ({
   middleBanner,
-  topBanner,
   sideBanners,
-}: IBannerProps) => {
+  topBanner
+}: IBannerData) => {
 
   return (
     <section className="py-8 bg-[#e4e4e4]/50">

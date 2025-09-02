@@ -20,6 +20,7 @@ const Banner = ({
   text,
   imageClassName,
   href,
+  currentImage
 }: IBannerProps) => {
   const wrapperClass = `${className || "banner block"} overflow-hidden relative`;
 
@@ -34,6 +35,7 @@ const Banner = ({
         height={height}
         alt={alt}
         imageClassName={imageClassName}
+        currentImage={currentImage}
       />
       {text && <div className={styles.title_style}>{text}</div>}
     </>

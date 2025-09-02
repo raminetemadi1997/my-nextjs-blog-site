@@ -1,15 +1,21 @@
 import Layout from "@/components/responsive/Layout";
-import { ApiResponse } from "@/types/Post/Post";
+import {IPostData } from "@/types/Post/Post";
 import React from "react";
 import PostBannerContainer from "./PostBannerContainer";
 import PostContent from "./PostContent";
 
-export default function Post({ data }: ApiResponse) {
+
+export default function Post(props:Pick<IPostData , 'content' | 'statusControl' | 'extra'>) {
+
+  const {content , statusControl} = props
+  
+
   return (
     <Layout>
-      {data.content.image && <PostBannerContainer {...data} />}
+      {statusControl.bannerStatus == 1 && content.image && <PostBannerContainer {...content} />}
 
-      <PostContent  {...data} />
+      <PostContent  {...props} />
+      
     </Layout>
   );
 }

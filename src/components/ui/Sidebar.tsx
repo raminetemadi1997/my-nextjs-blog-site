@@ -7,13 +7,12 @@ interface ISidebarProps {
 }
 
 const Sidebar = ({ children }: ISidebarProps) => {
-
-
-
   return (
-    <StickyBox offsetTop={20} offsetBottom={20}>
-      <aside className="space-y-4">{children}</aside>
-    </StickyBox>
+    <aside>
+      <StickyBox offsetTop={20} offsetBottom={20}>
+        <div className="space-y-4">{children}</div>
+      </StickyBox>
+    </aside>
   );
 };
 

@@ -3,22 +3,18 @@ import Sidebar from "../Sidebar";
 import SidebarItem from "../Sidebar/SidebarItem";
 import HomeCardContainer from "./HomeCardContainer";
 import { responsiveValues } from "@/utils/responsive";
-import { IAllCategoriesData, IRPData } from "@/types/HomeContent/RecentlyPosts";
-import { ISCData } from "@/types/HomeContent/SelectedCategories";
 import SelectedCategories from "./SelectedCategories";
-
-interface IHomeContentProps {
-  allCategories?: IAllCategoriesData;
-  recentlyPosts?: IRPData;
-  selectedCategories?: ISCData;
-}
+import { IContent } from "@/types/Home/Home";
 
 export default async function HomeContent({
   allCategories,
   recentlyPosts,
   selectedCategories,
-}: IHomeContentProps) {
+}: Pick<IContent ,'allCategories' | 'recentlyPosts' | 'selectedCategories'>) {
   const isMobile = await responsiveValues();
+
+
+  const allCategoriesVisible = allCategories && allCategories.status
 
   const hasRecentPosts =
     recentlyPosts?.status &&
@@ -50,7 +46,7 @@ export default async function HomeContent({
             ))}
           </div>
 
-          {!isMobile && allCategories?.status && (
+          {!isMobile && allCategoriesVisible && (
             <div>
               <Sidebar>
                 {allCategories.data.length > 0 && (

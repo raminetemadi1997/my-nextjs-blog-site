@@ -1,18 +1,13 @@
 export interface IRatioV {
-  indexArray: IndexArray
-  indexWeb: IndexWeb
+  indexArray: IndexVariants
+  indexWeb: IndexVariants
   directory: string
   currentImage: string
 }
 
-interface IndexArray {
+interface IndexVariants {
   original: string
   double_ratio: string
   triple_ratio: string
 }
 
-interface IndexWeb {
-  original: string
-  double_ratio: string
-  triple_ratio: string
-}

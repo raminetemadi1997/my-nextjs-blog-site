@@ -1,12 +1,13 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import { Navigation, Pagination, Autoplay, Grid } from "swiper/modules";
 import { ChevronRight, ChevronLeft } from "lucide-react";
 import { useId } from "react";
 
 import "react-loading-skeleton/dist/skeleton.css";
 
 import "swiper/css";
+import 'swiper/css/grid';
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
@@ -17,6 +18,8 @@ interface MySwiperProps {
   gap: number;
   pagination?: boolean;
   autoplay?: boolean;
+  rows?: number;
+  type ?:string
 }
 
 const MySwiper = ({
@@ -26,16 +29,16 @@ const MySwiper = ({
   gap,
   pagination,
   autoplay,
+  rows = 1,
+  type
 }: MySwiperProps) => {
   const uniqueId = useId();
 
   const prevClass = `swiper-button-prev-${uniqueId}`;
   const nextClass = `swiper-button-next-${uniqueId}`;
 
-
-
   return (
-    <div dir="rtl" className="relative group">
+    <div dir="rtl" className={`${type == "circular" ? "circular": "relative group"}`}>
       <div
         className={`${nextClass} h-[130px] absolute top-1/2 left-0 z-10 transform -translate-y-1/2 cursor-pointer p-2 bg-black/80 shadow hover:bg-black rounded-r-xl hidden group-hover:flex items-center`}
       >
@@ -48,7 +51,7 @@ const MySwiper = ({
       </div>
 
       <Swiper
-        modules={[Navigation, Pagination, Autoplay]}
+        modules={[Navigation, Pagination, Autoplay, Grid]}
         spaceBetween={gap}
         slidesPerView={col}
         loop={slides.length > col}
@@ -66,6 +69,9 @@ const MySwiper = ({
           640: {
             slidesPerView: col,
           },
+        }}
+        grid={{
+          rows: rows,
         }}
       >
         {slides.map((slide, index) => (

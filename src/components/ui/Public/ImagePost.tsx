@@ -47,7 +47,7 @@ export default function ImagePost(props: TCombinedTypes) {
               <motion.div
                 initial={{ bottom: "-90%" }}
                 whileHover={{ bottom: "0%" }}
-                transition={{ duration: 0.4, ease: "easeInOut" }}
+                transition={{ duration: 0.4 }}
                 className="absolute left-1/2 -translate-x-1/2 w-full h-full rounded-xl p-4 space-y-3
                  bg-gradient-to-t from-black/70 via-black/40 to-transparent
                  backdrop-blur-md shadow-lg"
@@ -56,8 +56,8 @@ export default function ImagePost(props: TCombinedTypes) {
                 <div className="h-1 w-12 bg-white rounded-full mx-auto"></div>
   
                 <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3, ease: "easeOut" }}
+                  
+                  transition={{ duration: 0.3 }}
                   className="text-sm text-white leading-relaxed line-clamp-6 text-justify origin-top"
                 >
                   {parse(content.summary)}

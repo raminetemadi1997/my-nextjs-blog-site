@@ -21,7 +21,7 @@ interface ISideBarItemsProps {
   title?: string;
 }
 
-const SidebarItem = ({ className, data, title , message ,status}: ISideBarItemsProps) => {
+const SidebarItem = ({ className, data, title }: ISideBarItemsProps) => {
   
   
   

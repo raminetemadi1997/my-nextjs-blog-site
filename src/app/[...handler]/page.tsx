@@ -1,6 +1,8 @@
 import Category from "@/components/ui/Category/Category";
 import Post from "@/components/ui/Post/Post";
 import { handlerApi } from "@/services/handlerApi";
+import { ICategoryApi } from "@/types/Category/Category";
+import { IPostApi } from "@/types/Post/Post";
 import { Metadata } from "next";
 
 interface IPageProps {
@@ -22,8 +24,8 @@ export async function generateMetadata({
 
   if (type == "category") {
     return {
-      title: data.data.meta.title,
-      description: data.data.meta.description,
+      title: data?.data.meta.title,
+      description: data?.data.meta.description,
     };
   }
   return {
@@ -39,8 +41,13 @@ export default async function HandlerPage({ params }: IPageProps) {
   const type = data.type as IType["type"];
 
   if (type == "post") {
-    return <Post {...data} />;
+    const postData = data as IPostApi
+    return <Post {...postData.data} />;
+  } else {
+    
+    const categoryData = data as ICategoryApi;
+    if (categoryData.data?.status) {
+      return <Category {...categoryData.data} />;
+    }
   }
-
-  return <Category data={data.data} />;
 }
