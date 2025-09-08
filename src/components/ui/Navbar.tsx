@@ -11,7 +11,7 @@ const Navbar = ({data ,className}: IMenuData) => {
                     data.map(({slug,name,id}:IDataItem)=>(
 
                         <li key={id} className="text-gray-700 hover:text-black relative group">
-                            <Link href={slug} title={name}>{name}</Link>
+                            <Link href={`/${slug}`} title={name}>{name}</Link>
                             {/* زیر منو ها */}
                             {/* {
                                items && items?.length > 0 &&
