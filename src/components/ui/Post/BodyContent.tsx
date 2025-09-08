@@ -1,9 +1,9 @@
-import { ApiContent } from "@/types/Post/Post";
+import { IPostContent } from "@/types/Post/Post";
 import parse, { domToReact } from "html-react-parser";
 
 
 interface IBodyContent {
-  body: Pick<ApiContent, "id" | "name" | "body">;
+  body: Pick<IPostContent, "id" | "name" | "body">;
   middleBanner?: React.ReactNode;
 }
 

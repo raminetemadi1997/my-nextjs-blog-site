@@ -46,7 +46,7 @@ export default function Comment({ postSlug }: ICommentProps) {
       }
     };
     getData();
-  }, [trigger]);
+  }, [trigger , postSlug]);
 
   const [form, setForm] = useState<FormState>({
     isOpen: false,

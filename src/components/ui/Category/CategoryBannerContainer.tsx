@@ -7,7 +7,7 @@ import MySwiper from "@/components/MySwiper";
 export default function CategoryBannerContainer({
   headerBanner,
 }: Pick<ICategoryBannerData, "headerBanner">) {
-  console.log(headerBanner);
+  
   
   const swiperData = headerBanner.map((item) => (
     <Banner

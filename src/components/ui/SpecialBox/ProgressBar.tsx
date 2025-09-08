@@ -1,9 +1,9 @@
 "use client";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
+import { SpecialBox } from "@/types/Post/Post";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
-export default function ProgressBar({ items, type }: ISpecialProps) {
+export default function ProgressBar({ items, type }: Pick<SpecialBox , 'items' | 'type'>) {
 
   if (type === 0) {
     return (

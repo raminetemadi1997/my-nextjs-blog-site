@@ -1,19 +1,14 @@
-import { ISpecialProps } from '@/types/Post/SpecialBox'
-import React from 'react'
-import SpecialCard from './SpecialCard'
-import MySwiper from '@/components/MySwiper'
+import React from "react";
+import SpecialCard from "./SpecialCard";
+import MySwiper from "@/components/MySwiper";
+import { SpecialBox } from "@/types/Post/Post";
 
-export default function SpecialCardContainer({items}:Pick<ISpecialProps , "items">) {
+export default function SpecialCardContainer({
+  items,
+}: Pick<SpecialBox, "items">) {
+  const swiperData = items.map((item) => (
+    <SpecialCard key={item.id} {...item} />
+  ));
 
-    const swiperData = items.map(item=>(
-        <SpecialCard key={item.id} {...item} />
-    ))
-
-  return (
-    <MySwiper
-        slides={swiperData}
-        gap={15}
-        col={4}
-    />
-  )
+  return <MySwiper slides={swiperData} gap={15} col={4} />;
 }

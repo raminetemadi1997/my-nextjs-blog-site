@@ -24,13 +24,13 @@ export async function generateMetadata({
 
   if (type == "category") {
     return {
-      title: data?.data.meta.title,
-      description: data?.data.meta.description,
+      title: data?.data?.meta?.title ?? '',
+      description: data?.data?.meta?.description ?? '',
     };
   }
   return {
-    title: data.data.meta.title,
-    description: data.data.meta.description,
+    title: data?.data?.meta?.title ?? '',
+    description: data?.data?.meta?.description ?? '',
   };
 }
 

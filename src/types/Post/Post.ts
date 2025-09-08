@@ -11,7 +11,7 @@ export interface IPostData {
   content: IPostContent
   meta: Meta
   statusControl: StatusControl
-  extra: Extra
+  extra: IPostExtra
 }
 
 export interface IPostContent {
@@ -20,7 +20,7 @@ export interface IPostContent {
   enName: string
   summary: string
   body: string
-  image: Image
+  image: ImageObject
   imageAlt: string
   cover: Cover
   coverAlt: string
@@ -33,7 +33,7 @@ export interface IPostContent {
   persianDate: string
 }
 
-export interface Image {
+export interface ImageObject {
   indexArray: IndexArray
   directory: string
   currentImage: string
@@ -115,18 +115,18 @@ export interface StatusControl {
   commentStatus: number
 }
 
-export interface Extra {
+export interface IPostExtra {
   category: Category
   user: User
-  tags: any[]
+  tags: unknown[]
   categoryRelations: CategoryRelation[]
   specialBox: SpecialBox[]
-  relatedPosts: any[]
-  popularPosts: any[]
+  relatedPosts: unknown[]
+  popularPosts: unknown[]
   allCategories: AllCategories
   recentlyPosts: RecentlyPosts
   banners: Banners
-  products: any[]
+  products: unknown[]
 }
 
 export interface Category {
@@ -221,13 +221,21 @@ export interface Item {
   product_id?: number
   product_slug?: string
   category_slug?: string
-  batch?: any[]
+  batch?: unknown[]
   alt_name?: string
   marketable?: number
   type?: number
   price?: number
   colors?: Color[]
-  discount: any
+  discount: {
+     start_date: string
+  end_date: string
+  percentage: number
+  type: number
+  infinite_status: number
+  discount_amount: number
+  final_price: number
+  }
   new_product?: number
   video_path?: string
   poster?: string
@@ -310,7 +318,7 @@ export interface Color {
   price_increase: number
   price: number
   final_price: number
-  discount: any[]
+  discount: unknown[]
 }
 
 export interface Product {
@@ -381,7 +389,7 @@ export interface Data2 {
   id: number
   name: string
   slug: string
-  extra: any[]
+  extra: unknown[]
 }
 
 export interface RecentlyPosts {
@@ -398,7 +406,7 @@ export interface Daum2 {
 
 export interface Data3 {
   content: Content2
-  meta: any[]
+  meta: unknown[]
   statusControl: StatusControl2
   extra: Extra2
 }

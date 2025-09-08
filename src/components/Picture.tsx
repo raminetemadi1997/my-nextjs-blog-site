@@ -1,5 +1,6 @@
-import { IImageIndexRatio } from "@/types/Category/Category";
-import { IPictureProps } from "@/types/picture";
+
+import { IndexVariants } from "@/types/Image/RatioVariants";
+import { IImageVariants, IPictureProps } from "@/types/picture";
 const imageBackend = process.env.NEXT_PUBLIC_BACKEND_IMAGE_URL;
 
 const Picture = ({
@@ -11,18 +12,21 @@ const Picture = ({
   imageClassName,
   currentImage
 }: IPictureProps) => {
-  const buildSrcSet = (paths: {
-    original: string;
-    double_ratio: string;
-    triple_ratio: string;
-  }) =>
-    `${imageBackend}/${paths.original} 1x, ` +
-    `${imageBackend}/${paths.double_ratio} 2x, ` +
-    `${imageBackend}/${paths.triple_ratio} 3x`;
+  const buildSrcSet = (paths: IImageVariants) =>
+  [
+    `${imageBackend}/${paths.original} 1x`,
+    paths.double_ratio && `${imageBackend}/${paths.double_ratio} 2x`,
+    paths.triple_ratio && `${imageBackend}/${paths.triple_ratio} 3x`,
+  ]
+    .filter(Boolean) 
+    .join(", ");
 
-  const imageFormatPNG = indexArray?.original.endsWith(".png");
 
-    const currentSrc =indexArray && indexArray[currentImage as keyof IImageIndexRatio];
+    
+
+  const imageFormatPNG = indexArray?.original?.endsWith(".png");
+
+    const currentSrc =indexArray && indexArray[currentImage as keyof IndexVariants];
     
     
 

@@ -74,7 +74,6 @@ export default function ImagePost(props: TCombinedTypes) {
             <div className="grid grid-cols-4 place-items-center">
               {userCondition && (
                 <User
-                  className="col-span-2"
                   fullName={user.fullName}
                   id={user.id}
                   image={user.image}

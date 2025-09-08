@@ -1,11 +1,11 @@
-import { ISpecialProps } from "@/types/Post/SpecialBox";
 import React from "react";
 import parse from "html-react-parser";
 import { getJsonLd } from "@/utils/videoStructure";
 import SingleVideo from "./SingleVideo";
+import { SpecialBox } from "@/types/Post/Post";
 
 type TVideocontent = {
-  data: ISpecialProps;
+  data: Pick<SpecialBox , 'items' | 'video_position' | 'id'>;
 };
 
 export default function VideoContent({ data }: TVideocontent) {

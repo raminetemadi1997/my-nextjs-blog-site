@@ -5,12 +5,12 @@ import Link from "next/link";
 interface ICategory {
    status?:boolean,
    message?:string,
-  data: {
-    id: number;
-    name: string;
-    slug: string;
-    extra?: unknown;
-  };
+    data: {
+      id: number;
+      name: string;
+      slug: string;
+      extra?: unknown;
+    };
 }
 
 interface ISideBarItemsProps {
@@ -22,10 +22,7 @@ interface ISideBarItemsProps {
 }
 
 const SidebarItem = ({ className, data, title }: ISideBarItemsProps) => {
-  
-  
-  
-  
+
   return (
     <div className={className || "SidebarItem"}>
       <Title title={title} />

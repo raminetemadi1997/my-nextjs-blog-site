@@ -8,42 +8,47 @@ import Published from "../Public/Published";
 import parse from "html-react-parser";
 import { motion } from "framer-motion";
 import { IUserProps } from "@/types/User";
-import { ICP } from "@/types/Image/CoverPost";
+import { IPostCardProps } from "@/types/PostCard";
 
-type TCombinedTypes = {
-    user:IUserProps,
-    content:ICP
+type TCombinedTypes = Pick<
+  IPostCardProps,
+  | "id"
+  | "slug"
+  | "cover"
+  | "coverAlt"
+  | "summary"
+  | "name"
+  | "altName"
+  | "persianDate"
+> & {
+  user: IUserProps;
 };
 
 export default function CoverPost(props: TCombinedTypes) {
-  const {
-    user,
-    content
-  } = props;
-
+  const { user, id , altName , coverAlt ,name ,slug ,cover ,persianDate ,summary } = props;
 
   const userCondition = user.image || user.slug || user.fullName;
 
   return (
     <article
-      id={`article_${content.id}`}
+      id={`article_${id}`}
       className={`overflow-hidden ${styles.box} rounded-sm group`}
     >
-      <Link href={content.slug ?? "#"}>
+      <Link href={slug ?? "#"}>
         <div className="relative overflow-hidden">
-          {content.cover && (
+          {cover && (
             <PostPicture
-              indexWeb={content.cover?.indexWeb}
-              indexArray={content.cover?.indexArray}
+              indexWeb={cover?.indexWeb}
+              indexArray={cover?.indexArray}
               height={308}
               width={308}
-              alt={content.coverAlt || "تصویر"}
-              currentImage={content.cover?.currentImage}
-              directory={content.cover.directory}
+              alt={coverAlt || "تصویر"}
+              currentImage={cover?.currentImage}
+              directory={cover.directory}
             />
           )}
 
-          {content.summary && (
+          {summary && (
             <motion.div
               initial={{ bottom: "-90%" }}
               whileHover={{ bottom: "0%" }}
@@ -60,27 +65,30 @@ export default function CoverPost(props: TCombinedTypes) {
                 transition={{ duration: 0.3, ease: "easeOut" }}
                 className="text-sm text-white leading-relaxed line-clamp-6 text-justify origin-top"
               >
-                {parse(content.summary)}
+                {parse(summary)}
               </motion.div>
             </motion.div>
           )}
         </div>
 
         <div className="space-y-4 p-4 bg-white">
-          {(content.name || content.altName) && (
-            <div className="text-[#6A6F73]">{content.altName || content.name}</div>
+          {(name || altName) && (
+            <div className="text-[#6A6F73]">
+              {altName || name}
+            </div>
           )}
 
           <div className="grid grid-cols-4 place-items-center">
             {userCondition && (
               <User
-                className="col-span-2"
                 fullName={user.fullName}
                 id={user.id}
                 image={user.image}
               />
             )}
-            {content.persianDate && <Published persianDate={content.persianDate} />}
+            {persianDate && (
+              <Published persianDate={persianDate} />
+            )}
           </div>
         </div>
       </Link>

@@ -1,3 +1,5 @@
+import { IImageVariants } from "../picture"
+
 export interface ICategoryApi {
   data: ICategoryData
   type: string
@@ -34,14 +36,14 @@ export interface StatusControl {
 }
 
 export interface ICategoryExtra {
-  pinPosts: any[]
+  pinPosts: unknown[]
   posts: Posts
   banners: Banners
-  relatedPosts: any[]
-  products: any
+  relatedPosts: unknown[]
+  products: unknown
   allCategories: AllCategories
   recentlyPosts: RecentlyPosts
-  popularPosts: any[]
+  popularPosts: unknown[]
 }
 
 export interface Posts {
@@ -52,10 +54,10 @@ export interface Posts {
   last_page: number
   last_page_url: string
   links: Link[]
-  next_page_url: any
+  next_page_url: unknown
   path: string
   per_page: number
-  prev_page_url: any
+  prev_page_url: unknown
   to: number
   total: number
 }
@@ -68,7 +70,7 @@ export interface Daum {
 
 export interface Data2 {
   content: Content2
-  meta: any[]
+  meta: unknown[]
   statusControl: StatusControl2
   extra: Extra2
 }
@@ -239,8 +241,8 @@ export interface SidebarBanner {
 }
 
 export interface Image4 {
-  indexArray: IndexArray5
-  indexWeb: IndexWeb5
+  indexArray: IImageVariants;
+  indexWeb: IImageVariants;
   directory: string
   currentImage: string
 }
@@ -386,16 +388,16 @@ export interface Data4 {
   id: number
   name: string
   slug: string
-  extra: any[]
+  extra: unknown[]
 }
 
 export interface RecentlyPosts {
   status: boolean
   message: string
-  data: Daum3[]
+  data: ICategoryRecentlyPosts[]
 }
 
-export interface Daum3 {
+export interface ICategoryRecentlyPosts {
   status: boolean
   message: string
   data: Data5
@@ -403,7 +405,7 @@ export interface Daum3 {
 
 export interface Data5 {
   content: Content3
-  meta: any[]
+  meta: unknown[]
   statusControl: StatusControl3
   extra: Extra3
 }

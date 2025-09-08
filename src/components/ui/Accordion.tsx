@@ -2,11 +2,12 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
+
 import parse from "html-react-parser";
 import Picture from "../Picture";
+import { SpecialBox } from "@/types/Post/Post";
 
-export default function Accordion({ items }: ISpecialProps) {
+export default function Accordion({ items }: Pick<SpecialBox , 'items'>) {
   const [isOpen, setIsOpen] = useState<number[]>([]);
 
   const toggleHandler = (id: number) => {

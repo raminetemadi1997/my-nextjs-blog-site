@@ -1,11 +1,11 @@
 import MySwiper from "@/components/MySwiper";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
 import React from "react";
 import SpecialCategory from "./SpecialCategory";
+import { SpecialBox } from "@/types/Post/Post";
 
 export default function SpecialCategoryContainer({
   items,
-}: Pick<ISpecialProps, "items">) {
+}: Pick<SpecialBox , 'items'>) {
   const swiperData = items.map((item) => (
     <SpecialCategory key={item.id} {...item} />
   ));

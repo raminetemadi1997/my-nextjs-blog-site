@@ -1,8 +1,8 @@
 import { responsiveValues } from "@/utils/responsive";
 import Main from "../Main";
 import Header from "../ui/Public/Header";
-import MobileHeader from "../ui/Mobile/MobileHeader";
-import MobileFooter from "../ui/Mobile/MobileFooter";
+// import MobileHeader from "../ui/Mobile/MobileHeader";
+// import MobileFooter from "../ui/Mobile/MobileFooter";
 import Footer from "../ui/Public/Footer";
 import { handlerApi } from "@/services/handlerApi";
 
@@ -17,7 +17,8 @@ const Layout = async ({ children }: ILayoutProps) => {
   return (
     <>
       {isMobile ? (
-        <MobileHeader />
+        // <MobileHeader />
+        <></>
       ) : (
         <Header
           menus={data.data.extra.menus}
@@ -27,7 +28,8 @@ const Layout = async ({ children }: ILayoutProps) => {
       )}
       <Main>{children}</Main>
       {isMobile ? (
-        <MobileFooter />
+        // <MobileFooter />
+        <></>
       ) : (
         <Footer
           footer={data.data.extra.footer}

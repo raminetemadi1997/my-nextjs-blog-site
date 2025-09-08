@@ -6,7 +6,9 @@ export interface IIndexV {
 }
 
 export interface IIndex {
-  original?: string
+   original: string
+  double_ratio?: string
+  triple_ratio?: string
   large?: string
   "large_1.5x"?: string
   large_2x?: string
@@ -14,7 +16,8 @@ export interface IIndex {
   "medium_1.5x"?: string
   medium_2x?: string
   samll?: string
-  "samll_1.5x"?: string
+  "samll_1.5"?: string
   samll_2x?: string
+  "samll_1.5x"?: string
 }
 

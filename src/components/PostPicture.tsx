@@ -15,26 +15,26 @@ const PostPicture = ({
   height,
   alt,
 }: TCombined) => {
-  const buildSrcSet = (paths: {
-    large: string;
-    "large_1.5x": string;
-    large_2x: string;
-    medium: string;
-    "medium_1.5x": string;
-    medium_2x: string;
-    samll: string;
-    "samll_1.5": string;
-    samll_2x: string;
-  }) =>
+
+  const buildSrcSet = (paths: IIndex) => {
+  const get1_5x = (keyBase: string) =>
+    paths[`${keyBase}_1.5x` as keyof IIndex] ??
+    paths[`${keyBase}_1.5` as keyof IIndex] ??
+    "";
+
+  return (
     `${imageBackend}/${paths.large} 1x, ` +
-    `${imageBackend}/${paths["large_1.5x"]} 1.5x, ` +
+    `${imageBackend}/${get1_5x("large")} 1.5x, ` +
     `${imageBackend}/${paths.large_2x} 2x, ` +
     `${imageBackend}/${paths.medium} 1x, ` +
-    `${imageBackend}/${paths["medium_1.5x"]} 1.5x, ` +
+    `${imageBackend}/${get1_5x("medium")} 1.5x, ` +
     `${imageBackend}/${paths.medium_2x} 2x, ` +
     `${imageBackend}/${paths.samll} 1x, ` +
-    `${imageBackend}/${paths["samll_1.5"]} 1.5x, ` +
-    `${imageBackend}/${paths.samll_2x} 2x`;
+    `${imageBackend}/${get1_5x("small")} 1.5x, ` +
+    `${imageBackend}/${paths.samll_2x} 2x`
+  );
+};
+
 
   function getMimeTypeFromFilename(filename: string): string {
     if (filename.endsWith(".png")) return "image/png";
@@ -45,7 +45,7 @@ const PostPicture = ({
   }
   if (!indexWeb || !indexArray) return null;
 
-  const currentSrc = indexArray[currentImage as keyof IIndex];
+  const currentSrc = indexArray[currentImage as keyof IIndex] ?? "";
   const currentType = getMimeTypeFromFilename(currentSrc);
 
   return (

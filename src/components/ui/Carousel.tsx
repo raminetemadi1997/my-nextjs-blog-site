@@ -37,7 +37,7 @@ const Carousel = ({ data }: Pick<SelectedPosts , 'data'>) => {
 
     if (!content || !user) return null;
 
-    return <CoverPost key={item.data.content.id} user={item.data.extra.user} content={item.data.content} />;
+    return <CoverPost key={item.data.content.id} user={item.data.extra.user} {...item.data.content} />;
   });
 
   return (

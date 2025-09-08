@@ -2,7 +2,7 @@ import Picture from "@/components/Picture";
 import { IUserProps } from "@/types/User";
 import React from "react";
 
-const User = ({ id, fullName, image }: IUserProps) => {
+const User = ({ image , fullName ,id }: IUserProps) => {
   return (
     <div id={`use_${id}`} className={`flex items-center gap-1 col-span-2`}>
       <div>

@@ -1,9 +1,14 @@
-import { ISpecialProps } from "@/types/Post/SpecialBox";
 import { getJsonLd } from "@/utils/videoStructure";
 import React from "react";
 import parse from "html-react-parser";
+import { SpecialBox } from "@/types/Post/Post";
 
-export default function SingleVideo({ items }: ISpecialProps) {
+type TSingleVideoProps = Pick<SpecialBox , 'items'> & {
+  width ?: number,
+  height ?: number
+}
+
+export default function SingleVideo({ items ,height ,width}: TSingleVideoProps) {
   const videoDirection = items[0];
   const jsonLdString = getJsonLd(videoDirection.data_structure);
   const structureStatus: boolean =
@@ -12,8 +17,8 @@ export default function SingleVideo({ items }: ISpecialProps) {
   return (
     <>
       <video
-        width="640"
-        height="360"
+        width={width || 640}
+        height={height || 360}
         controls
         poster={videoDirection.poster || undefined}
         className="mx-auto"

@@ -5,16 +5,16 @@ export interface IHomeResponseApi {
 export interface IHomeProps {
   message: string
   status: boolean
-  content: IContent
-  meta: any[]
+  content: IHomeContent
+  meta: unknown[]
   statusControl: StatusControl4
-  extra: any[]
+  extra: unknown[]
 }
 
-export interface IContent {
+export interface IHomeContent {
   banners: Banners
   selectedPosts: SelectedPosts
-  recentlyPosts: RecentlyPosts
+  recentlyPosts: IRecentlyPosts
   selectedCategories: SelectedCategories
   allCategories: AllCategories
 }
@@ -36,9 +36,9 @@ export interface TopBanner {
   title: string
   link: string
   image: Image
-  imageAlt: any
-  mobileImage: any
-  mobileImageAlt: any
+  imageAlt: string
+  mobileImage: unknown
+  mobileImageAlt: unknown
 }
 
 export interface Image {
@@ -65,9 +65,9 @@ export interface MiddleBanner {
   title: string
   link: string
   image: Image2
-  imageAlt: any
-  mobileImage: any
-  mobileImageAlt: any
+  imageAlt: string
+  mobileImage: unknown
+  mobileImageAlt: unknown
 }
 
 export interface Image2 {
@@ -94,9 +94,9 @@ export interface SideBanner {
   title: string
   link: string
   image: Image3
-  imageAlt: any
-  mobileImage: any
-  mobileImageAlt: any
+  imageAlt: string
+  mobileImage: unknown
+  mobileImageAlt: unknown
 }
 
 export interface Image3 {
@@ -127,12 +127,12 @@ export interface SelectedPosts {
 export interface ISelectedPostsData {
   status: boolean
   message: string
-  data: Data3
+  data: ISelectedPostsInnerData
 }
 
-export interface Data3 {
+export interface ISelectedPostsInnerData {
   content: Content2
-  meta: any[]
+  meta: unknown[]
   statusControl: StatusControl
   extra: Extra
 }
@@ -148,6 +148,7 @@ export interface Content2 {
   publishedAt: string
   createdAt: string
   persianDate: string
+  summary?:string
 }
 
 export interface Cover {
@@ -225,7 +226,7 @@ export interface IndexWeb5 {
   triple_ratio: string
 }
 
-export interface RecentlyPosts {
+export interface IRecentlyPosts {
   status: boolean
   message: string
   data: Daum2[]
@@ -239,7 +240,7 @@ export interface Daum2 {
 
 export interface Data4 {
   content: Content3
-  meta: any[]
+  meta: unknown[]
   statusControl: StatusControl2
   extra: Extra2
 }
@@ -335,10 +336,10 @@ export interface IndexWeb7 {
 export interface SelectedCategories {
   status: boolean
   message: string
-  data: Daum3[]
+  data: ISelectedCategoriesData[]
 }
 
-export interface Daum3 {
+export interface ISelectedCategoriesData {
   status: boolean
   message: string
   data: Data5
@@ -363,7 +364,7 @@ export interface Post {
 
 export interface Data6 {
   content: Content4
-  meta: any[]
+  meta: unknown[]
   statusControl: StatusControl3
   extra: Extra4
 }
@@ -459,10 +460,10 @@ export interface IndexWeb9 {
 export interface AllCategories {
   status: boolean
   message: string
-  data: Daum4[]
+  data: IAllCategoriesData[]
 }
 
-export interface Daum4 {
+export interface IAllCategoriesData {
   status: boolean
   message: string
   data: Data7
@@ -472,7 +473,7 @@ export interface Data7 {
   id: number
   name: string
   slug: string
-  extra: any[]
+  extra: unknown[]
 }
 
 export interface StatusControl4 {

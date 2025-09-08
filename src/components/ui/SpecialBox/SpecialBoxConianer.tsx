@@ -1,5 +1,5 @@
 
-import { Extra } from "@/types/Post/Post";
+import {  IPostExtra } from "@/types/Post/Post";
 import React from "react";
 import ImageSlider from "./ImageSlider";
 import TitleSpecial from "./TitleSpecial";
@@ -16,16 +16,10 @@ import SpecialCardContainer from "./special-card/SpecialCardContainer";
 import SpecialCategoryContainer from "./special-category-slider/SpecialCategoryContainer";
 
 
-
-
-type TSpecialBoxProps = {
-  data: Pick<Extra, "specialBox">;
-};
-
-export default function SpecialBoxConianer({ data }: TSpecialBoxProps) {
+export default function SpecialBoxConianer({ specialBox }: Pick<IPostExtra , 'specialBox'>) {
   return (
     <section className="space-y-8">
-      {data.specialBox.map((item) => {
+      {specialBox.map((item) => {
         const arrayVisible = item.items.length > 0
         return (
           <div key={item.id} className="space-y-4" id={`spacial_${item.id}`}>

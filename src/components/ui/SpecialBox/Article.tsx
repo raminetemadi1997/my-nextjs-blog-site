@@ -1,12 +1,12 @@
 "use client";
 import Picture from "@/components/Picture";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
 import React from "react";
 import parse from "html-react-parser";
 import { motion } from "framer-motion";
 import MySwiper from "@/components/MySwiper";
+import { SpecialBox } from "@/types/Post/Post";
 
-export default function Article({ items }: ISpecialProps) {
+export default function Article({ items }: Pick<SpecialBox , 'items'>) {
    
   const swiperData = items.map((item) => {
     return (

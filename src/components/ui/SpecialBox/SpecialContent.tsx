@@ -1,11 +1,11 @@
 import Picture from "@/components/Picture";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
 import Link from "next/link";
 import React from "react";
 import parse from "html-react-parser";
 import { Plus } from "lucide-react";
+import { SpecialBox } from "@/types/Post/Post";
 
-export default function SpecialContent({ items, content_type } : ISpecialProps) {
+export default function SpecialContent({ items, content_type } : Pick<SpecialBox , 'items' | 'content_type'>) {
   if (content_type == "first_content") {
     return items.map((item) => (
       <div key={item.id} className="grid grid-cols-4 gap-4">

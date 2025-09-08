@@ -5,7 +5,7 @@ export interface IRatioV {
   currentImage: string
 }
 
-interface IndexVariants {
+export interface IndexVariants {
   original: string
   double_ratio: string
   triple_ratio: string

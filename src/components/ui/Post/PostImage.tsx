@@ -1,10 +1,10 @@
-import { ImageObject, PostContentFull } from '@/types/Post/Post'
+import { ImageObject, IPostContent } from '@/types/Post/Post'
 import React from 'react'
 const imageBackend = process.env.NEXT_PUBLIC_BACKEND_IMAGE_URL;
 
 
 
-type CombineImage = ImageObject & PostContentFull & {
+type CombineImage = ImageObject & Pick<IPostContent , 'imageAlt'> & {
   width: number;
   height: number;
 };

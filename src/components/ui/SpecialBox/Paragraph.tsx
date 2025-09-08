@@ -1,12 +1,13 @@
 "use client";
 
-import { ISpecialProps } from "@/types/Post/SpecialBox";
+
 import { useState } from "react";
 import parse from "html-react-parser";
 import Link from "next/link";
 import { ChevronDown, ChevronLeft } from "lucide-react";
+import { SpecialBox } from "@/types/Post/Post";
 
-export default function Paragraph({ items, content_type, id }: ISpecialProps) {
+export default function Paragraph({ items, content_type, id }: Pick<SpecialBox , 'items' | 'content_type' | 'id'>) {
   const [expandedItems, setExpandedItems] = useState<number[]>([]);
 
   

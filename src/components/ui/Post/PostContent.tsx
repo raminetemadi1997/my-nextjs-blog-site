@@ -19,7 +19,7 @@ export default async function PostContent({
   extra,
   statusControl,
 }: Pick<IPostData, "content" | "statusControl" | "extra">) {
-  const { banners, recentlyPosts, allCategories, user, categoryRelations } =
+  const { banners, recentlyPosts, allCategories, user, categoryRelations  } =
     extra;
   const { commentStatus, specialBoxStatus, bannerStatus } = statusControl;
 
@@ -40,7 +40,7 @@ export default async function PostContent({
         text={item.name}
       />
     ));
-
+    
   return (
     <section className="md:bg-white bg-[#F2F2F2] md:px-0 px-2">
       <Container>
@@ -121,8 +121,8 @@ export default async function PostContent({
               swiperData(banners.data.footerBanner, { w: 1028, h: 634 })
             ))}
 
-            {specialBoxStatus && <SpecialBoxConianer data={extra} />}
-            {categoryRelations && <Tags data={categoryRelations} />}
+            {specialBoxStatus && <SpecialBoxConianer {...extra} />}
+            {categoryRelations && <Tags {...extra}/>}
             {commentStatus && <Comment postSlug={content.postSlug} />}
           </div>
 
@@ -147,7 +147,7 @@ export default async function PostContent({
               swiperData(banners.data.sidebarBanner, { w: 1028, h: 634 })
             ))}
             {recentlyPosts?.status && recentlyPosts.data?.length > 0 && (
-              <RecentlyPosts title="آخرین مقالات" data={recentlyPosts.data} />
+              <RecentlyPosts title="آخرین مقالات" {...recentlyPosts} />
             )}
           </Sidebar>
         </div>

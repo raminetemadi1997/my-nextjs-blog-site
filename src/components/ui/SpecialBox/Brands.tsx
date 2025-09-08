@@ -1,10 +1,10 @@
 import MySwiper from "@/components/MySwiper";
 import Picture from "@/components/Picture";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
+import { SpecialBox } from "@/types/Post/Post";
 import Link from "next/link";
 import React from "react";
 
-const Brands = ({ items }: ISpecialProps) => {
+const Brands = ({ items }: Pick<SpecialBox , 'items'>) => {
   const swiperData = items.map((item) => {
     return (
       <Link

@@ -1,14 +1,15 @@
 "use client";
-import { ISpecialProps } from "@/types/Post/SpecialBox";
+
 
 import Banner from "../Banner/Banner";
 import MySwiper from "@/components/MySwiper";
+import { SpecialBox } from "@/types/Post/Post";
 
 export default function ImageSlider({
   content_type,
   id,
   items,
-}: ISpecialProps) {
+}: Pick<SpecialBox , 'items' | 'content_type' | 'id'>) {
 
   const swiperData = items.map((item) => {
     return (

@@ -1,7 +1,7 @@
 // RecentlyPosts = RP
 
 import { ICP } from "../Image/CoverPost";
-import { IPostCardProps } from "../PostCard";
+// import { IPostCardProps } from "../PostCard";
 import { IUserProps } from "../User";
 
 export interface IRPData {
