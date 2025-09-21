@@ -1,7 +1,6 @@
 "use client";
 import Link from "next/link";
 import React from "react";
-import styles from "@/styles/Card.module.css";
 import PostPicture from "@/components/public/PostPicture";
 import User from "../../public/User";
 import Published from "../../public/Published";
@@ -27,7 +26,7 @@ export default function ImagePost(props: TCombinedTypes) {
   return (
       <article
         id={`article_${content.id}`}
-        className={`overflow-hidden ${styles.box} rounded-sm group`}
+        className={`overflow-hidden border border-black/7 shadow-[0_2px_0.1px_0_#00000036] rounded-sm group`}
       >
         <Link href={content.slug ?? "#"}>
           <div className="relative overflow-hidden">
@@ -79,7 +78,11 @@ export default function ImagePost(props: TCombinedTypes) {
                   image={user.image}
                 />
               )}
-              {content.persianDate && <Published persianDate={content.persianDate} />}
+              {content.persianDate && 
+              <div className="col-span-2">
+              <Published persianDate={content.persianDate} />
+              </div>
+              }
             </div>
           </div>
         </Link>
