@@ -1,5 +1,5 @@
-import Category from "@/components/ui/Category/Category";
-import Post from "@/components/ui/Post/Post";
+import CategoryTemplate from "@/components/templates/CategoryTemplate";
+import PostTemplate from "@/components/templates/PostTemplate";
 import { handlerApi } from "@/services/handlerApi";
 import { ICategoryApi } from "@/types/Category/Category";
 import { IPostApi } from "@/types/Post/Post";
@@ -42,12 +42,12 @@ export default async function HandlerPage({ params }: IPageProps) {
 
   if (type == "post") {
     const postData = data as IPostApi
-    return <Post {...postData.data} />;
+    return <PostTemplate {...postData.data} />;
   } else {
     
     const categoryData = data as ICategoryApi;
     if (categoryData.data?.status) {
-      return <Category {...categoryData.data} />;
+      return <CategoryTemplate {...categoryData.data} />;
     }
   }
 }

@@ -9,3 +9,14 @@ export const handlerApi = (routes : string) =>{
 
     return response
 }
+
+
+export const settingApi = () =>{
+    const response = axios.get(`/api/blog/setting`).then((result) => {
+        return result.data
+    }).catch((err) => {
+        return err
+    });
+
+    return response
+}
